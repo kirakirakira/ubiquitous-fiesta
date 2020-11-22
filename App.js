@@ -1,28 +1,36 @@
-import React from "react";
-import { StyleSheet, Image, View, Dimensions } from "react-native";
-
-import picBiscuit from './assets/biscuit.jpg';
-import picJungle from './assets/jungle.jpg';
+import React, { useState } from "react";
+import { Text, View, Button, StyleSheet, TouchableHighlight } from "react-native";
 
 export default function App() {
+  const [backgroundColor, setBackgroundColor] = useState("white");
+  const [count, setCount] = useState(0);
+
   return (
-    <View style={styles.page}>
-      <Image style={styles.image} source={picBiscuit}></Image>
-      <Image style={styles.image} source={picJungle}></Image>
+    <View style={[styles.container, { backgroundColor }]}>
+      <Text style={styles.button}
+        onPress={() => setBackgroundColor("green")}>green</Text>
+      <Text style={styles.button}
+        onPress={() => setBackgroundColor("red")}>red</Text>
+      <Text>You clicked {count} times.</Text>
+      <Button title="Click me" onPress={() => setCount(count+1)}></Button>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  page: {
+  container: {
     flex: 1,
+    display: "flex",
     justifyContent: "center",
     alignItems: "center"
   },
-  image: {
-    flex: 1,
-    borderRadius: 50,
+  button: {
+    fontSize: 30,
     margin: 10,
-    width: Dimensions.get("window").width - 10
+    padding: 10,
+    borderWidth: 2,
+    borderRadius: 10,
+    alignSelf: "stretch",
+    textAlign: "center"
   }
 });
