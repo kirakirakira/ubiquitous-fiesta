@@ -7,12 +7,17 @@ export default function App() {
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
-      <Text style={styles.button}
-        onPress={() => setBackgroundColor("green")}>green</Text>
-      <Text style={styles.button}
-        onPress={() => setBackgroundColor("red")}>red</Text>
+      <TouchableHighlight style={styles.button}
+        onPress={() => setBackgroundColor("yellow")}
+        underlayColor="orange"
+      >
+        <View>
+          <View style={styles.sample} />
+          <Text style={styles.buttonText, { backgroundColor: "yellow" }}>Yellow</Text>
+        </View>
+      </TouchableHighlight>
       <Text>You clicked {count} times.</Text>
-      <Button title="Click me" onPress={() => setCount(count+1)}></Button>
+      <Button title="Click me" onPress={() => setCount(count + 1)}></Button>
     </View>
   );
 }
@@ -25,12 +30,20 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   button: {
-    fontSize: 30,
     margin: 10,
     padding: 10,
     borderWidth: 2,
     borderRadius: 10,
     alignSelf: "stretch",
+  },
+  buttonText: {
+    fontSize: 30,
     textAlign: "center"
+  },
+  sample: {
+    height: 20,
+    width: 20,
+    borderRadius: 10,
+    backgroundColor: "red"
   }
 });
