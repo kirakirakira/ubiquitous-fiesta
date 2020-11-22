@@ -1,21 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Image, View, Dimensions } from "react-native";
+
+import picBiscuit from './assets/biscuit.jpg';
+import picJungle from './assets/jungle.jpg';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.page}>
+      <Image style={styles.image} source={picBiscuit}></Image>
+      <Image style={styles.image} source={picJungle}></Image>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  page: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
+  image: {
+    flex: 1,
+    borderRadius: 50,
+    margin: 10,
+    width: Dimensions.get("window").width - 10
+  }
 });
