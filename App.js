@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Text, View, Button, StyleSheet, TouchableHighlight } from "react-native";
+import { Text, View, Button, StyleSheet } from "react-native";
+import ColorButton from "./components/ColorButton";
 
 export default function App() {
   const [backgroundColor, setBackgroundColor] = useState("white");
@@ -7,15 +8,11 @@ export default function App() {
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
-      <TouchableHighlight style={styles.button}
-        onPress={() => setBackgroundColor("yellow")}
-        underlayColor="orange"
-      >
-        <View>
-          <View style={styles.sample} />
-          <Text style={styles.buttonText, { backgroundColor: "yellow" }}>Yellow</Text>
-        </View>
-      </TouchableHighlight>
+      <ColorButton backgroundColor="red" onPress={setBackgroundColor}/>
+      <ColorButton backgroundColor="blue" onPress={setBackgroundColor}/>
+      <ColorButton backgroundColor="green" onPress={setBackgroundColor}/>
+      <ColorButton backgroundColor="yellow" onPress={setBackgroundColor}/>
+      <ColorButton backgroundColor="purple" onPress={setBackgroundColor}/>
       <Text>You clicked {count} times.</Text>
       <Button title="Click me" onPress={() => setCount(count + 1)}></Button>
     </View>
@@ -28,22 +25,5 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
-  },
-  button: {
-    margin: 10,
-    padding: 10,
-    borderWidth: 2,
-    borderRadius: 10,
-    alignSelf: "stretch",
-  },
-  buttonText: {
-    fontSize: 30,
-    textAlign: "center"
-  },
-  sample: {
-    height: 20,
-    width: 20,
-    borderRadius: 10,
-    backgroundColor: "red"
   }
 });
