@@ -2,18 +2,7 @@ import React, { useState } from "react";
 import { Text, View, Button, StyleSheet, FlatList, Alert } from "react-native";
 import ColorButton from "./components/ColorButton";
 import ColorForm from "./components/ColorForm";
-
-let id = 1;
-
-const useColors = () => {
-  const [colors, setColors] = useState([]);
-  const addColor = color => {
-    id++;
-    const newColor = { id: id.toString(), color };
-    setColors([newColor, ...colors]);
-  }
-  return { colors, addColor }
-}
+import { useColors } from "./hooks";
 
 export default function App() {
   const [backgroundColor, setBackgroundColor] = useState("white");
