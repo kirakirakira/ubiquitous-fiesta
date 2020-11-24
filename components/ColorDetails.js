@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-export default function ColorDetails() {
+export default function ColorDetails({ route }) {
   return (
     <>
         <View style={styles.container}>
-            <Text>Color Details</Text>
+            <Text>Color Details: { route.params.color }</Text>
         </View>
     </>
   );
